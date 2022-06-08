@@ -15,8 +15,8 @@ export async function setupAgent({
   endpoints,
   name,
   logger,
-  autoAcceptConnection,
-  autoAcceptCredential,
+  autoAcceptConnections,
+  autoAcceptCredentials,
   useLegacyDidSovPrefix,
 }: {
   port: number
@@ -24,15 +24,15 @@ export async function setupAgent({
   endpoints: string[]
   name: string
   logger: TsLogger
-  autoAcceptConnection: boolean
-  autoAcceptCredential: AutoAcceptCredential
+  autoAcceptConnections: boolean
+  autoAcceptCredentials: AutoAcceptCredential
   useLegacyDidSovPrefix: boolean
 }) {
   const agentConfig: InitConfig = {
-    label: 'Agent ORCA',
+    label: name,
     walletConfig: {
-      id: 'Animo ORCA Agent',
-      key: '5aZLhTaNUWDcW3SSj9lGfmqsuENbt6ur',
+      id: name,
+      key: name,
     },
     indyLedgers: [
       {
@@ -43,8 +43,8 @@ export async function setupAgent({
     ],
     publicDidSeed: publicDidSeed,
     endpoints: endpoints,
-    autoAcceptConnections: autoAcceptConnection,
-    autoAcceptCredentials: autoAcceptCredential,
+    autoAcceptConnections: autoAcceptConnections,
+    autoAcceptCredentials: autoAcceptCredentials,
     useLegacyDidSovPrefix: useLegacyDidSovPrefix,
     logger: logger,
   }
