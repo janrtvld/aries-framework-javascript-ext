@@ -29,10 +29,10 @@ export async function setupAgent({
   useLegacyDidSovPrefix: boolean
 }) {
   const agentConfig: InitConfig = {
-    label: name,
+    label: 'Agent ORCA',
     walletConfig: {
-      id: name,
-      key: name,
+      id: 'Animo ORCA Agent',
+      key: '5aZLhTaNUWDcW3SSj9lGfmqsuENbt6ur',
     },
     indyLedgers: [
       {
