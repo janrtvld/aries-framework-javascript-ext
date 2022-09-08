@@ -24,6 +24,10 @@ export const setupServer = async (agent: Agent, config: ServerConfig) => {
   if (config.app) server = config.app
   if (config.cors) server.use(cors())
 
+  server.options('/*', (_, res) => {
+    res.sendStatus(200)
+  })
+
   if (config.webhookUrl) {
     basicMessageEvents(agent, config)
     connectionEvents(agent, config)
